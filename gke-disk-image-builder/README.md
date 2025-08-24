@@ -133,6 +133,21 @@ go build -o image-builder ./cli
     --container-image=$IMAGE_NAME
 ```
 
+### Docker
+
+You can also use docker to compile the module and provide binary in image
+
+```shell
+docker build -t gke-disk-image-builder:latest .
+docker run --rm -it gke-disk-image-builder:latest \
+    --project-name=$PROJECT_NAME \
+    --image-name=$IMAGE_NAME \
+    --zone=$ZONE \
+    --gcs-path=gs://$GCS_PATH/ \
+    --disk-size-gb=$DISK_SIZE_GB \
+    --container-image=$IMAGE_NAME
+```
+
 ## Examples
 
 Here are some examples on how to use the tool.
